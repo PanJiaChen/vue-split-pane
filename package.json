@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "license": "MIT",
-  "homepage": "",
+  "homepage": "file:///Users/jiachenpan/www/Github/PanJiaChen.github.io/split-pane/demo/index.html",
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
