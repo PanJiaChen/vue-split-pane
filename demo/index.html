@@ -24,42 +24,49 @@
 
     <template>
 
-      <split-pane v-on:resize="resize" split="vertical">
+      <split-pane v-on:resize="resize" :min-percent='20' split="vertical">
         <template slot="paneL">
-          <div class="left-container">aaaa</div>
+          A
         </template>
+
         <template slot="paneR">
+
           <split-pane split="horizontal">
+
             <template slot="paneL">
-              <div class="top-container">nnn</div>
+             B
             </template>
+
             <template slot="paneR">
-              <div class="bottom-container">
-                ccc
-              </div>
+              <split-pane v-on:resize="resize" split="vertical" :default-percent='30'>
+
+                <template slot="paneL">
+                 C
+                </template>
+
+                <template slot="paneR">
+                 D
+                </template>
+
+              </split-pane>
             </template>
+
           </split-pane>
+
         </template>
       </split-pane>
 
     </template>
+
   </div>
 
   <script>
     var Main = {
       name: 'test',
-      data() {
-        return {
-
-        }
-      },
-      computed: {
-
-      },
       methods: {
         resize() {
-        console.log('resize')
-      }
+          console.log('resize')
+        }
       }
     };
     var Ctor = Vue.extend(Main)

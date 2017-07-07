@@ -5,7 +5,7 @@
       <slot name="paneL"></slot>
     </pane>
 
-    <resizer :style="{ [resizeType]: percent+'%'}" :split="split" :onMouseDown="onMouseDown" @click="onClick"></resizer>
+    <resizer :style="{ [resizeType]: percent+'%'}" :split="split" @mousedown.native="onMouseDown" @click.native="onClick"></resizer>
 
     <pane class="splitter-pane splitter-paneR" :split="split" :style="{ [type]: 100-percent+'%'}">
       <slot name="paneR"></slot>
@@ -22,9 +22,13 @@
     name: 'splitPane',
     components: { Resizer, Pane },
     props: {
-      margin: {
+      minPercent: {
         type: Number,
         default: 10
+      },
+      defaultPercent: {
+        type: Number,
+        default: 50
       },
       split: {
         validator(value) {
@@ -46,7 +50,7 @@
         active: false,
         hasMoved: false,
         height: null,
-        percent: 50,
+        percent: this.defaultPercent,
         type: this.split === 'vertical' ? 'width' : 'height',
         resizeType: this.split === 'vertical' ? 'left' : 'top'
       }
@@ -87,7 +91,7 @@
           const currentPage = this.split === 'vertical' ? e.pageX : e.pageY;
           const targetOffset = this.split === 'vertical' ? e.currentTarget.offsetWidth : e.currentTarget.offsetHeight;
           const percent = Math.floor(((currentPage - offset) / targetOffset) * 10000) / 100;
-          if (percent > this.margin && percent < 100 - this.margin) {
+          if (percent > this.minPercent && percent < 100 - this.minPercent) {
             this.percent = percent;
           }
           this.$emit('resize');
