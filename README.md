@@ -6,7 +6,7 @@ Split-Pane component built with vue2.0, can be split vertically or horizontally.
 
 ### How to use?
 ```bash
-npm install vue-split-pane
+npm install vue-splitpane
 ```
 
 ### Example
