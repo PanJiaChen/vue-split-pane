@@ -1,9 +1,9 @@
 {
   "name": "vue-split-pane",
-  "description": "",
-  "version": "1.0.5",
+  "description": "vue split-pane component",
+  "version": "1.0.0",
   "author": "Pan <panfree23@gmail.com>",
-  "main": "",
+  "main": "dist/vue-split-pane.min.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --content-base='./demo/'",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
