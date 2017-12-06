@@ -6,6 +6,7 @@
   "main": "dist/vue-split-pane.min.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --content-base='./demo/'",
+    "watch": "cross-env NODE_ENV=production webpack --progress --watch",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "license": "MIT",

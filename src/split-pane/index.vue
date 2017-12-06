@@ -5,7 +5,7 @@
       <slot name="paneL"></slot>
     </pane>
 
-    <resizer :style="{ [resizeType]: percent+'%'}" :split="split" @mousedown.native="onMouseDown" @click.native="onClick"></resizer>
+    <resizer :className="className" :style="{ [resizeType]: percent+'%'}" :split="split" @mousedown.native="onMouseDown" @click.native="onClick"></resizer>
 
     <pane class="splitter-pane splitter-paneR" :split="split" :style="{ [type]: 100-percent+'%'}">
       <slot name="paneR"></slot>
@@ -35,7 +35,8 @@
           return ['vertical', 'horizontal'].indexOf(value) >= 0
         },
         required: true
-      }
+      },
+      className: String
     },
     computed: {
       userSelect() {
