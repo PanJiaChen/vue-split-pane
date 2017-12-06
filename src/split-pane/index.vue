@@ -15,8 +15,8 @@
 </template>
 
 <script>
-  import Resizer from './resizer.vue';
-  import Pane from './pane.vue';
+  import Resizer from './resizer.vue'
+  import Pane from './pane.vue'
 
   export default {
     name: 'splitPane',
@@ -59,44 +59,47 @@
     methods: {
       onClick() {
         if (!this.hasMoved) {
-          this.percent = 50;
-          this.$emit('resize');
+          this.percent = 50
+          this.$emit('resize')
         }
       },
       onMouseDown() {
-        this.active = true;
-        this.hasMoved = false;
+        this.active = true
+        this.hasMoved = false
       },
       onMouseUp() {
-        this.active = false;
+        this.active = false
       },
       onMouseMove(e) {
         if (e.buttons === 0 || e.which === 0) {
-          this.active = false;
+          this.active = false
         }
+
         if (this.active) {
-          let offset = 0;
-          let target = e.currentTarget;
+          let offset = 0
+          let target = e.currentTarget
           if (this.split === 'vertical') {
             while (target) {
-              offset += target.offsetLeft;
-              target = target.offsetParent;
+              offset += target.offsetLeft
+              target = target.offsetParent
             }
           } else {
             while (target) {
-              offset += target.offsetTop;
-              target = target.offsetParent;
+              offset += target.offsetTop
+              target = target.offsetParent
             }
           }
 
-          const currentPage = this.split === 'vertical' ? e.pageX : e.pageY;
-          const targetOffset = this.split === 'vertical' ? e.currentTarget.offsetWidth : e.currentTarget.offsetHeight;
-          const percent = Math.floor(((currentPage - offset) / targetOffset) * 10000) / 100;
+          const currentPage = this.split === 'vertical' ? e.pageX : e.pageY
+          const targetOffset = this.split === 'vertical' ? e.currentTarget.offsetWidth : e.currentTarget.offsetHeight
+          const percent = Math.floor(((currentPage - offset) / targetOffset) * 10000) / 100
+
           if (percent > this.minPercent && percent < 100 - this.minPercent) {
-            this.percent = percent;
+            this.percent = percent
           }
-          this.$emit('resize');
-          this.hasMoved = true;
+
+          this.$emit('resize')
+          this.hasMoved = true
         }
       }
     }
