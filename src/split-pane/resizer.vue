@@ -36,10 +36,10 @@
   -webkit-background-clip: padding;
   background-clip: padding-box;
   z-index: 1000;
-  background: black
+  background: #b9b9b9;
 }
 .Resizer:hover {
-  background: grey
+  background: #dadce0;
 }
 
 .Resizer:after {
@@ -72,7 +72,7 @@
   cursor: row-resize;
   width: 100%;
   height: 6px;
-  border: 1px #afafaf solid;
+  border: 1px #bdbdbd78 solid;
   margin-top: 0;
 }
 
@@ -81,7 +81,7 @@
   margin-left: -5px;
   cursor: col-resize;
   width: 6px;
-  border: 1px #bdbdbd solid;
+  border: 1px #bdbdbd78 solid;
   margin-left: -3px;
 }
 </style>
