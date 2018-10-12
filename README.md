@@ -12,7 +12,7 @@ npm install vue-splitpane
 import splitPane from 'vue-splitpane'
 
 # use as global component
-Vue.component('split-pane', VueSplitPane);
+Vue.component('split-pane', splitPane);
 ```
 
 ### Example
