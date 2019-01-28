@@ -47,8 +47,8 @@
       }
     },
     watch: {
-      defaultPercent(new,old){
-        this.percent = new
+      defaultPercent(newValue,oldValue){
+        this.percent = newValue
       }
     },
     data() {
