@@ -46,6 +46,11 @@
         return this.active ? 'col-resize' : ''
       }
     },
+    watch: {
+      defaultPercent(newValue,oldValue){
+        this.percent = newValue
+      }
+    },
     data() {
       return {
         active: false,
