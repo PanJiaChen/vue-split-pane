@@ -10,7 +10,7 @@
     <pane class="splitter-pane splitter-paneR" :split="split" :style="{ [type]: 100-percent+'%'}">
       <slot name="paneR"></slot>
     </pane>
-
+    <div class="vue-splitter-container-mask" v-if="active"></div>
   </div>
 </template>
 
@@ -124,5 +124,14 @@
 .vue-splitter-container {
   height: 100%;
   position: relative;
+}
+
+.vue-splitter-container-mask {
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 </style>
