@@ -1,13 +1,13 @@
 <template>
-  <div :style="{ cursor, userSelect}" class="vue-splitter-container clearfix" @mouseup="onMouseUp" @mousemove="onMouseMove">
+  <div :style="{ cursor, userSelect}" class="vue-splitter-container" :class="split" @mouseup="onMouseUp" @mousemove="onMouseMove">
 
-    <pane class="splitter-pane splitter-paneL" :split="split" :style="{ [type]: percent+'%'}">
+    <pane class="splitter-pane splitter-paneL" :style="{ [type]: percent+'%'}">
       <slot name="paneL"></slot>
     </pane>
 
     <resizer :className="className" :style="{ [resizeType]: percent+'%'}" :split="split" @mousedown.native="onMouseDown" @click.native="onClick"></resizer>
 
-    <pane class="splitter-pane splitter-paneR" :split="split" :style="{ [type]: 100-percent+'%'}">
+    <pane class="splitter-pane splitter-paneR" :style="{ [type]: 100-percent+'%'}">
       <slot name="paneR"></slot>
     </pane>
     <div class="vue-splitter-container-mask" v-if="active"></div>
@@ -65,7 +65,7 @@
       onClick() {
         if (!this.hasMoved) {
           this.percent = 50
-          this.$emit('resize')
+          this.$emit('resize', this.percent)
         }
       },
       onMouseDown() {
@@ -103,7 +103,7 @@
             this.percent = percent
           }
 
-          this.$emit('resize')
+          this.$emit('resize', this.percent)
           this.hasMoved = true
         }
       }
@@ -114,7 +114,6 @@
 <style scoped>
 .clearfix:after {
   visibility: hidden;
-  display: block;
   font-size: 0;
   content: " ";
   clear: both;
@@ -122,8 +121,17 @@
 }
 
 .vue-splitter-container {
-  height: 100%;
   position: relative;
+  display: flex;
+  height: 100%;
+}
+
+.vue-splitter-container.vertical {
+  flex-direction: row;
+}
+
+.vue-splitter-container.horizontal {
+  flex-direction: column;
 }
 
 .vue-splitter-container-mask {
