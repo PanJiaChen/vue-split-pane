@@ -65,7 +65,7 @@
       onClick() {
         if (!this.hasMoved) {
           this.percent = 50
-          this.$emit('resize')
+          this.$emit('resize', this.percent)
         }
       },
       onMouseDown() {
@@ -103,7 +103,7 @@
             this.percent = percent
           }
 
-          this.$emit('resize')
+          this.$emit('resize', this.percent)
           this.hasMoved = true
         }
       }
