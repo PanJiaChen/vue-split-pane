@@ -43,7 +43,7 @@
         return this.active ? 'none' : ''
       },
       cursor() {
-        return this.active ? 'col-resize' : ''
+        return this.active ? (this.split === 'vertical' ? 'col-resize' : 'row-resize') : ''
       }
     },
     watch: {
