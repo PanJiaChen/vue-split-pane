@@ -1,7 +1,7 @@
 {
   "name": "vue-splitpane",
   "description": "vue split-pane component",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "repository": "https://github.com/PanJiaChen/vue-split-pane",
   "author": "Pan <panfree23@gmail.com>",
   "main": "dist/vue-split-pane.min.js",
