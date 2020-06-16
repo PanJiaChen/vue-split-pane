@@ -76,7 +76,8 @@
         this.active = false
       },
       onMouseMove(e) {
-        if (e.buttons === 0 || e.which === 0) {
+        if ((e.buttons === 0 || typeof e.buttons === undefined)
+          && (e.which === 0 || typeof e.which === undefined)) {
           this.active = false
         }
 
