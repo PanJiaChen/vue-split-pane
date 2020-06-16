@@ -76,7 +76,7 @@
         this.active = false
       },
       onMouseMove(e) {
-        if (e.buttons === 0 || e.which === 0) {
+        if (e.which === 0) {
           this.active = false
         }
 
