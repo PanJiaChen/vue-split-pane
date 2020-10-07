@@ -99,9 +99,16 @@
           const targetOffset = this.split === 'vertical' ? e.currentTarget.offsetWidth : e.currentTarget.offsetHeight
           const percent = Math.floor(((currentPage - offset) / targetOffset) * 10000) / 100
 
-          if (percent > this.minPercent && percent < 100 - this.minPercent) {
-            this.percent = percent
+          if (percent < this.minPercent) {
+            this.percent = this.minPercent
           }
+
+          const maxPercent = 100 - this.minPercent
+          if (percent > maxPercent) {
+            this.percent = maxPercent
+          }
+
+          this.percent = percent
 
           this.$emit('resize', this.percent)
           this.hasMoved = true
